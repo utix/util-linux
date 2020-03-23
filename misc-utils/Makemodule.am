@@ -98,6 +98,13 @@ uuidgen_LDADD = $(LDADD) libuuid.la
 uuidgen_CFLAGS = $(AM_CFLAGS) -I$(ul_libuuid_incdir)
 endif
 
+if BUILD_UUIDPERF
+usrbin_exec_PROGRAMS += uuidperf
+uuidperf_SOURCES = misc-utils/uuidperf.c
+uuidperf_LDADD = $(LDADD) libcommon.la libuuid.la
+uuidperf_CFLAGS = $(AM_CFLAGS) -I$(ul_libuuid_incdir)
+endif
+
 if BUILD_UUIDPARSE
 usrbin_exec_PROGRAMS += uuidparse
 dist_man_MANS += misc-utils/uuidparse.1
